@@ -1,63 +1,44 @@
 package iut.bad;
 
-public class Humain {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Humain implements Consommation{
+    
     private String nom;
     private String prenom;
     private int age;
-    
-    public Humain() {
-        this.nom = "";
-        this.prenom = "";
-        this.age = 0;
-    }
+    private List<Humain> amis;
 
+    public Humain() {
+    	this.amis = new ArrayList<>();
+    }
     
     public Humain(String nom, String prenom, int age) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.age = age;
-    }
-    
-    
-    
-    public String getNom() {
-		return nom;
-	}
-
-
-	public void setNom(String nom) {
 		this.nom = nom;
-	}
-
-
-	public String getPrenom() {
-		return prenom;
-	}
-
-
-	public void setPrenom(String prenom) {
 		this.prenom = prenom;
-	}
-
-
-	public int getAge() {
-		return age;
-	}
-
-
-	public void setAge(int age) {
 		this.age = age;
 	}
 
 
-	public void details() {
-        System.out.println("Nom: " + nom);
-        System.out.println("Prénom: " + prenom);
-        System.out.println("Âge: " + age);
-    }
-	
-	@Override
     public String toString() {
         return "Nom: " + nom + "\nPrénom: " + prenom + "\nÂge: " + age;
     }
+	public void boire() {
+		
+	}
+	public void manger() {
+		
+	}
+	public void ami(Humain autreHumain, int dureeAmitie) {
+        this.amis.add(autreHumain);
+        autreHumain.amis.add(this);
+        System.out.println(this.prenom + " est maintenant ami avec " + autreHumain.prenom + " pour " + dureeAmitie + " jours.");
+    }
+
+   
+    public void ami(Humain autreHumain) {
+        ami(autreHumain, 100); 
+    }
+	
 }
