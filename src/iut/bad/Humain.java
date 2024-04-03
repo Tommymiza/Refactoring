@@ -55,4 +55,9 @@ public class Humain {
         System.out.println("Prénom: " + prenom);
         System.out.println("Âge: " + age);
     }
+	
+	@Override
+    public String toString() {
+        return "Nom: " + nom + "\nPrénom: " + prenom + "\nÂge: " + age;
+    }
 }
